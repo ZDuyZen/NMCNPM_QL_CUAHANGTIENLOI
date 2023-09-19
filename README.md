@@ -19,7 +19,7 @@ Lương Duy Minh
   
 ## Chưc năng
 + Nhân viên đăng nhập tài khoản
-+ Lướt xem danh sách thông tin về các sản phẩm
++ Lướt xem danh sách thông tin về các mặt hàng
 + Thanh toán cho khách hàng
 + Xuất hóa đơn sau khi thanh toán
-+ Quản lý tài khoản nhân viên
++ Quản lý tài khoản nhân viên và thông tin mặt hàng
