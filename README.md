@@ -8,8 +8,7 @@ Website bán linh kiện điện tử
 Nhập môn Công nghệ phần mềm
 
 ## Thành viên
-Nguyễn Quang Trung
-Lương Duy Minh
+Nguyễn Quang Trung | Lương Duy Minh
 
 ## Công nghệ
 + Visual Studio 2013
