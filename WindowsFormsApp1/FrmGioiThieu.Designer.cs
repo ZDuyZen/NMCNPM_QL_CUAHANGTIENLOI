@@ -53,7 +53,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(156, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 18);
+            this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Phiên bản: 2.0";
             // 
@@ -63,7 +63,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Location = new System.Drawing.Point(291, 90);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(131, 18);
+            this.linkLabel1.Size = new System.Drawing.Size(123, 18);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Kiểm tra cập nhật";
@@ -75,7 +75,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(271, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 18);
+            this.label3.Size = new System.Drawing.Size(56, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tác giả";
             // 
@@ -83,13 +83,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("SF Pro Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(159, 204);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(296, 204);
+            this.label4.Size = new System.Drawing.Size(287, 64);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Nguyễn Quang Trung\r\nLương Duy Minh\r\nNguyễn Vũ Ngọc Huy\r\nTrần Tấn Nghĩa\r\nHuỳnh Thế" +
-    " Bảo\r\nLê Hữu Phú";
+            this.label4.Text = "Nguyễn Quang Trung\r\nLương Duy Minh\r\n";
             // 
             // FrmGioiThieu
             // 
@@ -103,7 +102,7 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("SF Pro Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmGioiThieu";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
