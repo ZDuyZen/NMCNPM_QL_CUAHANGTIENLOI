@@ -23,7 +23,7 @@ Nhập môn Công nghệ phần mềm
 + Crystal Report VS 2013
 + .NET Framework 4.7.2
 
-## Chưc năng
+## Chức năng
 + Nhân viên đăng nhập tài khoản
 + Lướt xem danh sách thông tin về các mặt hàng
 + Thanh toán cho khách hàng
