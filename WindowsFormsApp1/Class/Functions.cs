@@ -125,5 +125,25 @@ namespace WindowsFormsApp1.Class
             cbb.ValueMember = ma;
             cbb.DisplayMember = ten;
         }
+
+        public static object RunSQLScalar(string sql)
+        {
+            SqlCommand cmd = new SqlCommand(sql, con);
+            try
+            {
+                object result = cmd.ExecuteScalar();
+                return result;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+        }
+
     }
 }

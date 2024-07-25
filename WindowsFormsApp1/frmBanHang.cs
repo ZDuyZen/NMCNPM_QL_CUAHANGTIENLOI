@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     public partial class frm_BanHang : Form
     {
         public frm_BanHang()
-        { 
+        {
             InitializeComponent();
         }
 
@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             string NV = Program.MaNVDangNhap;
             string sql = "Select LOAI from TAIKHOAN where MANV = '" + NV + "'";
             if (Functions.GetFieldValues(sql) == "0")
@@ -59,12 +59,12 @@ namespace WindowsFormsApp1
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void hàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             string NV = Program.MaNVDangNhap;
             string sql = "Select LOAI from TAIKHOAN where MANV = '" + NV + "'";
             if (Functions.GetFieldValues(sql) == "0")
@@ -110,17 +110,17 @@ namespace WindowsFormsApp1
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void frm_BanHang_Load(object sender, EventArgs e)
         {
-            label1.Text= "Xin chào! "+Program.MaNVDangNhap;
+            label1.Text = "Xin chào! " + Program.MaNVDangNhap;
             //LoadDataToGridView();
-            
+
         }
-        
+
         private void LoadDataToGridView()
         {
             try
@@ -138,7 +138,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Hình như có gì đó sai sai. Hãy thử lại!");
                 return;
             }
-            
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -193,10 +193,10 @@ namespace WindowsFormsApp1
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            String MaSP=txtMaHH.Text;
+            String MaSP = txtMaHH.Text;
             String SoLuong = txtSoLuong.Text;
             String MAHD = txtMaHd.Text;
-            if (txtMaHd.Text=="")
+            if (txtMaHd.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập mã hóa đơn");
                 txtMaHd.Focus();
@@ -208,7 +208,7 @@ namespace WindowsFormsApp1
                 txtMaHH.Focus();
                 return;
             }
-            if (SoLuong=="")
+            if (SoLuong == "")
             {
                 MessageBox.Show("Bạn phải nhập số lượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtSoLuong.Focus();
@@ -218,12 +218,12 @@ namespace WindowsFormsApp1
             {
                 string sql = "select TENHH FROM HANGHOA";
                 string tenHang = Functions.GetFieldValues(sql).Trim();
-                sql = "select SOLUONG FROM CHITIETHOADON WHERE MAHD = '"+ txtMaHd.Text +"' AND MAHH = '"+txtMaHH.Text+"' ";
-                if(Functions.CheckKey(sql) == true)
+                sql = "select SOLUONG FROM CHITIETHOADON WHERE MAHD = '" + txtMaHd.Text + "' AND MAHH = '" + txtMaHH.Text + "' ";
+                if (Functions.CheckKey(sql) == true)
                 {
                     string soluongcu = Functions.GetFieldValues(sql);
                     int soluongmoi = Convert.ToInt32(soluongcu) + Convert.ToInt32(txtSoLuong.Text);
-                    sql = "UPDATE CHITIETHOADON SET SOLUONG = "+ soluongmoi +" WHERE MAHD = " + txtMaHd.Text + " AND MAHH = '" + txtMaHH.Text + "' ";
+                    sql = "UPDATE CHITIETHOADON SET SOLUONG = " + soluongmoi + " WHERE MAHD = " + txtMaHd.Text + " AND MAHH = '" + txtMaHH.Text + "' ";
                     Functions.RunSQL(sql);
                     LoadDataToGridView();
                 }
@@ -232,8 +232,8 @@ namespace WindowsFormsApp1
                     sql = "INSERT INTO CHITIETHOADON VALUES (" + MAHD + ",'" + MaSP + "'," + SoLuong + ")";
                     Functions.RunSQL(sql);
                     LoadDataToGridView();
-                }    
-              
+                }
+
                 //ResetValues();
                 txtTienTamTinh.Text = Functions.GetFieldValues("Select SUM(SOLUONG*hh.GIA)\r\nFrom CHITIETHOADON cthd, HANGHOA hh\r\nwhere cthd.MAHH=hh.MAHH and MAHD=" + MAHD + "");
             }
@@ -242,14 +242,14 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Hình như có gì đó sai sai. Hãy thử lại!");
                 return;
             }
-            
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            String MAHD=txtMaHd.Text;
+            String MAHD = txtMaHd.Text;
             string sql;
-            if (txtMaHH.Text=="" && txtSoLuong.Text=="")
+            if (txtMaHH.Text == "" && txtSoLuong.Text == "")
             {
                 MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -269,7 +269,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Hình như có gì đó sai sai. Hãy thử lại!");
                 return;
             }
-            
+
         }
 
         private void dgvBanHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -279,7 +279,7 @@ namespace WindowsFormsApp1
                 return;
             }
             DataGridViewRow row = dgvBanHang.Rows[e.RowIndex];
-            if(dgvBanHang.DataSource==null)
+            if (dgvBanHang.DataSource == null)
             {
                 return;
             }
@@ -298,7 +298,7 @@ namespace WindowsFormsApp1
 
                 }
             }
-            
+
 
         }
         Double results = 0;
@@ -328,17 +328,17 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             txtTienKhachDua.Text = "0";
-            
+
         }
 
         private void txtTienThoiLai_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtTienKhachDua_TextChanged(object sender, EventArgs e)
         {
-            
+
             Double tientamtinh = 0;
             Double tienkhachdua = 0;
             if (txtTienKhachDua.Text == "")
@@ -352,8 +352,8 @@ namespace WindowsFormsApp1
                 Double tienthoilai = tienkhachdua - tientamtinh;
                 txtTienThoiLai.Text = tienthoilai.ToString();
             }
-            
-            
+
+
         }
 
         private void txtTienKhachDua_KeyPress(object sender, KeyPressEventArgs e)
@@ -371,74 +371,66 @@ namespace WindowsFormsApp1
             txtTienTamTinh.Text = "0";
             txtTienKhachDua.Text = "0";
             txtTienThoiLai.Text = "0";
-            
+
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             int tienKhach = Convert.ToInt32(txtTienKhachDua.Text);
             int tienTam = Convert.ToInt32(txtTienTamTinh.Text);
             int tienThoi = Convert.ToInt32(txtTienThoiLai.Text);
-            if(tienKhach<tienTam)
+            if (tienKhach < tienTam)
             {
                 MessageBox.Show("Tiền khách đưa phải lớn hơn bằng tiền tiền thanh toán của sản phẩm");
                 return;
-            }    
+            }
 
-            if (radioButtonTienMat.Checked == true)
+            if (radioButtonTienMat.Checked)
             {
-                if (txtMaKH.Text == "")
-                {
-                    
-                    try
-                    {
+                String MaHD = txtMaHd.Text;
+                String MaNV = txtMaNV.Text;
+                String MaKh = txtMaKH.Text;
 
-                        String MaHD = txtMaHd.Text;
-                        String MaNV = txtMaNV.Text;
-                        String MaKh = txtMaKH.Text;
-                        if (MaKh == "")
-                            MaKh = "NULL";
-                        String TongTien = txtTienTamTinh.Text;
-                        String sql = "Update HOADON SET MAKH='0', MANV='" + MaNV + "', TONGTIEN=" + TongTien + ", TIENKHACHDUA = "+tienKhach+", TIENTHOILAI = "+tienThoi+", TinhTrang='Đã thanh toán'\r\nWhere MAHD=" + MaHD + "";
-                        Functions.RunSQL(sql);
-                        MessageBox.Show("Thanh toán thành công");
-                        ResetValue();
-                        dgvBanHang.DataSource = null;
-                        frm_hoadonThanhToan f = new frm_hoadonThanhToan(MaHD);
-                        f.ShowDialog();
-                    }
-                    catch
+                // Kiểm tra mã khách hàng
+                if (!string.IsNullOrEmpty(MaKh) && MaKh != "0")
+                {
+                    String checkCustomerSql = "SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = '" + MaKh + "'";
+                    int count = (int)Functions.RunSQLScalar(checkCustomerSql);
+
+                    if (count == 0)
                     {
-                        MessageBox.Show("Hình như có gì đó sai sai. Hãy thử lại!");
-                        return;
+                        String sql = "INSERT INTO KHACHHANG (MAKH, TENKH, DIACHI, SDT) VALUES ('" + MaKh + "', N'Tên khách hàng mới', N'Địa chỉ khách hàng mới', NULL)";
+                        try
+                        {
+                            Functions.RunSQL(sql);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi thêm khách hàng mới: " + ex.Message);
+                            return;
+                        }
                     }
                 }
                 else
                 {
-                    try
-                    {
-
-                        String MaHD = txtMaHd.Text;
-                        String MaNV = txtMaNV.Text;
-                        String MaKh = txtMaKH.Text;
-                        if (MaKh == "")
-                            MaKh = "NULL";
-                        String TongTien = txtTienTamTinh.Text;
-                        String sql = "Update HOADON\r\nSET MAKH='" + MaKh + "', MANV='" + MaNV + "', TIENKHACHDUA = " + tienKhach + ", TIENTHOILAI = " + tienThoi + ", TONGTIEN=" + TongTien + ",TinhTrang='Đã thanh toán'\r\nWhere MAHD=" + MaHD + "";
-                        Functions.RunSQL(sql);
-                        MessageBox.Show("Thanh toán thành công");
-                        ResetValue();
-                        dgvBanHang.DataSource = null;
-                        frm_hoadonThanhToan f = new frm_hoadonThanhToan(MaHD);
-                        f.ShowDialog();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Hình như có gì đó sai sai. Hãy thử lại!");
-                        return;
-                    }
+                    MaKh = "0";
                 }
-                
-                
+
+                try
+                {
+                    String TongTien = txtTienTamTinh.Text;
+                    String sql = "UPDATE HOADON SET MAKH='" + MaKh + "', MANV='" + MaNV + "', TIENKHACHDUA = " + tienKhach + ", TIENTHOILAI = " + tienThoi + ", TONGTIEN=" + TongTien + ", TinhTrang='Đã thanh toán' WHERE MAHD=" + MaHD;
+                    Functions.RunSQL(sql);
+                    MessageBox.Show("Thanh toán thành công");
+                    ResetValue();
+                    dgvBanHang.DataSource = null;
+                    frm_hoadonThanhToan f = new frm_hoadonThanhToan(MaHD);
+                    f.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hình như có gì đó sai sai. Hãy thử lại!\n" + ex.Message);
+                    return;
+                }
             }
             else
             {
@@ -458,22 +450,22 @@ namespace WindowsFormsApp1
         }
         public void SetValue(String value)
         {
-            this.txtMaHH.Text=value;
+            this.txtMaHH.Text = value;
         }
-        
+
         private void txtMaHH_TextChanged(object sender, EventArgs e)
         {
         }
-            
+
 
         private void txtMaHH_TextAlignChanged(object sender, EventArgs e)
         {
-       
+
         }
 
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             string NV = Program.MaNVDangNhap;
             string sql = "Select LOAI from TAIKHOAN where MANV = '" + NV + "'";
             if (Functions.GetFieldValues(sql) == "0")
@@ -491,7 +483,7 @@ namespace WindowsFormsApp1
         {
             if (radioButtonTienMat.Checked == true)
             {
-                if(txtMaKH.Text=="")
+                if (txtMaKH.Text == "")
                 {
                     try
                     {
@@ -535,8 +527,8 @@ namespace WindowsFormsApp1
                         return;
                     }
                 }
-                
-                
+
+
             }
             else
             {
@@ -574,7 +566,7 @@ namespace WindowsFormsApp1
                 sql = "select SOLUONG FROM CHITIETHOADON WHERE MAHD = '" + txtMaHd.Text + "' AND MAHH = '" + txtMaHH.Text + "' ";
                 if (Functions.CheckKey(sql) == true)
                 {
-                    int soluongmoi =  Convert.ToInt32(txtSoLuong.Text);
+                    int soluongmoi = Convert.ToInt32(txtSoLuong.Text);
                     sql = "UPDATE CHITIETHOADON SET SOLUONG = " + soluongmoi + " WHERE MAHD = " + txtMaHd.Text + " AND MAHH = '" + txtMaHH.Text + "' ";
                     Functions.RunSQL(sql);
                     LoadDataToGridView();
@@ -582,7 +574,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Chưa có sản phẩm "+ tenHang + " trong hóa đơn");
+                    MessageBox.Show("Chưa có sản phẩm " + tenHang + " trong hóa đơn");
                     return;
                 }
 
