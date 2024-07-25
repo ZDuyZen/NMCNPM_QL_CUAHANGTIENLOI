@@ -8,18 +8,22 @@ Application Winform Quản lý cửa hàng tiện lợi
 Nhập môn Công nghệ phần mềm
 
 ## Thành viên
-| Tên | MSSV |
-| ------------- |:-------------:| 
-| Nguyễn Quang Trung | 2001206926 | 
-| Lương Duy Minh | 2001202155 | 
+| Tên |
+| ------------- |
+| Nguyễn Quang Trung  | 
+| Lương Duy Minh  | 
 
 ## Công nghệ
-+ Visual Studio 2013
 + SQL Server
 + Crystal Reports
 + ADO.NET
-  
-## Chưc năng
+
+## Yêu cầu
++ Visual Studio 2013
++ Crystal Report VS 2013
++ .NET Framework 4.7.2
+
+## Chức năng
 + Nhân viên đăng nhập tài khoản
 + Lướt xem danh sách thông tin về các mặt hàng
 + Thanh toán cho khách hàng
