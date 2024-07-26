@@ -10,6 +10,8 @@ using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Net;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace WindowsFormsApp1.Class
 {
@@ -144,6 +146,43 @@ namespace WindowsFormsApp1.Class
                 cmd.Dispose();
             }
         }
+
+        public static void SetReportDatabaseConnection(ReportDocument reportDocument, string connectionString)
+        {
+            var builder = new SqlConnectionStringBuilder(connectionString);
+
+            string serverName = builder.DataSource;
+            string databaseName = builder.InitialCatalog;
+            string userId = builder.UserID;
+            string password = builder.Password;
+
+            bool useIntegratedSecurity = builder.IntegratedSecurity;
+
+            foreach (Table table in reportDocument.Database.Tables)
+            {
+                TableLogOnInfo logOnInfo = table.LogOnInfo;
+                logOnInfo.ConnectionInfo.ServerName = serverName;
+                logOnInfo.ConnectionInfo.DatabaseName = databaseName;
+
+                if (useIntegratedSecurity)
+                {
+                    logOnInfo.ConnectionInfo.IntegratedSecurity = true;
+                }
+                else
+                {
+                    logOnInfo.ConnectionInfo.UserID = userId;
+                    logOnInfo.ConnectionInfo.Password = password;
+                }
+
+                table.ApplyLogOnInfo(logOnInfo);
+            }
+
+            foreach (ReportDocument subReport in reportDocument.Subreports)
+            {
+                SetReportDatabaseConnection(subReport, connectionString);
+            }
+        }
+
 
     }
 }

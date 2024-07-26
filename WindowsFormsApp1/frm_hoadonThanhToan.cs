@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports;
 using CrystalDecisions.Shared;
+using System.Configuration;
+using WindowsFormsApp1.Class;
 
 namespace WindowsFormsApp1
 {
@@ -33,6 +35,9 @@ namespace WindowsFormsApp1
             {
                 if (maHD != "")
                 {
+
+                    string connectionString = ConfigurationManager.ConnectionStrings["WindowsFormsApp1.Properties.Settings.QLBanHangConnectString"].ConnectionString;
+                    Functions.SetReportDatabaseConnection(rpt, connectionString);
 
 
                     ParameterValues maHoaDon = new ParameterValues();
